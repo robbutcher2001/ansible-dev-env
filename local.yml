@@ -6,3 +6,8 @@
     with_items:
       - git
       - openvpn
+  - name: Download Drone
+    shell: 'curl http://downloads.drone.io/release/darwin/amd64/drone.tar.gz | tar zx'
+  - name: Install Drone
+    shell: 'cp drone /usr/local/bin'
+    when: result|success
