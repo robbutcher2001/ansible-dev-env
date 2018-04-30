@@ -7,7 +7,10 @@
       - git
       - openvpn
   - name: Download Drone
-    shell: 'curl http://downloads.drone.io/release/darwin/amd64/drone.tar.gz | tar zx'
-  - name: Install Drone
-    shell: 'cp drone /usr/local/bin'
-    when: result|success
+    get_url: http://downloads.drone.io/release/darwin/amd64/drone.tar.gz
+    dest: /tmp/drone.tar.gz
+  - name: Unzip Drone tarball to install
+    unarchive:
+      src: /tmp/drone.tar.gz
+      dest: /usr/local/bin
+      remote_src: yes
