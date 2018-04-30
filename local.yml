@@ -7,8 +7,9 @@
       - git
       - openvpn
   - name: Download Drone
-    get_url: http://downloads.drone.io/release/darwin/amd64/drone.tar.gz
-    dest: /tmp/drone.tar.gz
+    get_url:
+      url: http://downloads.drone.io/release/darwin/amd64/drone.tar.gz
+      dest: /tmp/drone.tar.gz
   - name: Unzip Drone tarball to install
     unarchive:
       src: /tmp/drone.tar.gz
