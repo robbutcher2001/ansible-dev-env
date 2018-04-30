@@ -1,0 +1,11 @@
+- name: Add Kubernetes key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+- name: Add repo to apt
+  copy:
+    dest: /etc/apt/sources.list.d/kubernetes.list
+    content: 'deb http://apt.kubernetes.io/ kubernetes-xenial main'
+- name: Install Kubernetes
+  apt: name=kubectl
+    update_cache: yes
