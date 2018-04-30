@@ -11,6 +11,10 @@
       dest: /tmp/drone.tar.gz
       force: yes
   - name: Unzip Drone tarball to install
+    file:
+      path: /tmp/drone
+      state: directory
+      mode: 0755
     unarchive:
       src: /tmp/drone.tar.gz
       dest: /tmp/drone
