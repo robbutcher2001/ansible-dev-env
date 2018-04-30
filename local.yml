@@ -1,17 +1,17 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: Install openvpn and git
+  - name: Install Openvpn
     apt: name={{item}}
     with_items:
-      - git
       - openvpn
   - name: Download Drone
     get_url:
-      url: http://downloads.drone.io/release/darwin/amd64/drone.tar.gz
+      url: http://downloads.drone.io/release/linux/amd64/drone.tar.gz
       dest: /tmp/drone.tar.gz
+      force: yes
   - name: Unzip Drone tarball to install
     unarchive:
       src: /tmp/drone.tar.gz
-      dest: /usr/local/bin
+      dest: /tmp/drone
       remote_src: yes
