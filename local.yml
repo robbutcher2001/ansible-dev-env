@@ -22,3 +22,11 @@
       remote_src: yes
   - name: Install Drone
     shell: 'install -t /usr/local/bin /tmp/drone-install/drone'
+  - name: Cleanup Drone install file
+    file:
+      path: /tmp/drone.tar.gz
+      state: absent
+  - name: Cleanup Drone extracted files
+    file:
+      path: /tmp/drone-install
+      state: absent
