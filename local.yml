@@ -1,5 +1,8 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: Install git
-    apt: name=git
+  - name: Install openvpn and git
+    apt: name={{item}}
+    with_items:
+      - git
+      - openvpn
