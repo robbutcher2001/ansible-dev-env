@@ -6,7 +6,7 @@
 - name: Add repo to apt
   copy:
     dest: /etc/apt/sources.list.d/virtualbox.list
-    content: 'deb http://download.virtualbox.org/virtualbox/debian `lsb_release -cs` contrib'
+    content: 'deb http://download.virtualbox.org/virtualbox/debian xenial contrib'
 - name: Install VirtualBox
   apt: name=virtualbox-5.2
   update_cache: yes
