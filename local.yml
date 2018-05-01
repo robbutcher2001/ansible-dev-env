@@ -6,6 +6,7 @@
       changed_when: False
   tasks:
     - include: tasks/packages.yml
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
     - include: tasks/drone.yml
     - include: tasks/kubernetes.yml
     - include: tasks/virtualbox.yml
