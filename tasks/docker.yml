@@ -6,7 +6,7 @@
 - name: Add repo to apt
   lineinfile:
     dest: /etc/apt/sources.list
-    line: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+    line: 'deb [arch=amd64] http://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
     state: present
     insertafter: EOF
 - name: Install Docker
