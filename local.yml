@@ -6,10 +6,12 @@
       changed_when: False
   tasks:
     - include: tasks/packages.yml
-      when: ansible_distribution == 'Ubunt' or ansible_distribution_release == 'xenial'
-    - include: tasks/drone.yml
-      when: ansible_distribution == 'Ubunt' or ansible_distribution_release == 'xenial'
+      when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial'
     - include: tasks/kubernetes.yml
-      when: ansible_distribution == 'Ubunt' or ansible_distribution_release == 'xenial'
+      when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial'
+    - include: tasks/docker.yml
+      when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial'
+    - include: tasks/drone.yml
+      when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial'
     - include: tasks/virtualbox.yml
-      when: ansible_distribution == 'Ubunt' or ansible_distribution_release == 'xenial'
+      when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial'
