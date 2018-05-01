@@ -6,6 +6,8 @@
   copy:
     dest: /etc/apt/sources.list.d/kubernetes.list
     content: 'deb http://apt.kubernetes.io/ kubernetes-xenial main'
+- name: Update repositories
+  apt: update_cache=yes
+  changed_when: False
 - name: Install Kubernetes
   apt: name=kubectl
-  update_cache: yes

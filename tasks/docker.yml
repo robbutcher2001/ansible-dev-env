@@ -8,7 +8,9 @@
     line: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable'
     state: present
     insertafter: EOF
+- name: Update repositories
+  apt: update_cache=yes
+  changed_when: False
 - name: Install Docker
   apt: name=docker-ce
   allow_unauthenticated: yes
-  update_cache: yes
