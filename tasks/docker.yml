@@ -10,5 +10,5 @@
     insertafter: EOF
 - name: Install Docker
   apt: name=docker-ce
-  force: yes
+  allow_unauthenticated: yes
   update_cache: yes
