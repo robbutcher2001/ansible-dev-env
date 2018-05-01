@@ -1,14 +1,14 @@
 - name: Add Docker key
   apt_key:
-    # url: https://download.docker.com/linux/ubuntu/gpg
-    url: http://download.docker.com/linux/ubuntu/gpg
+    url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 - name: Add repo to apt
   lineinfile:
     dest: /etc/apt/sources.list
-    line: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+    line: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable'
     state: present
     insertafter: EOF
 - name: Install Docker
   apt: name=docker-ce
+  force: yes
   update_cache: yes
