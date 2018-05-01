@@ -4,9 +4,11 @@
     url: http://www.virtualbox.org/download/oracle_vbox_2016.asc
     state: present
 - name: Add repo to apt
-  copy:
-    dest: /etc/apt/sources.list.d/virtualbox.list
-    content: 'deb http://download.virtualbox.org/virtualbox/debian xenial contrib'
+  lineinfile:
+    dest: /etc/apt/sources.list
+    line: 'deb http://download.virtualbox.org/virtualbox/debian xenial contrib'
+    state: present
+    insertafter: EOF
 - name: Install VirtualBox
   apt: name=virtualbox-5.2
   update_cache: yes
