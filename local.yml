@@ -8,3 +8,4 @@
     - include: tasks/packages.yml
     - include: tasks/drone.yml
     - include: tasks/kubernetes.yml
+    - include: tasks/virtualbox.yml
