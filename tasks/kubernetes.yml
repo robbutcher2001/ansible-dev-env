@@ -1,7 +1,7 @@
 - name: Add Kubernetes key
   apt_key:
-    # url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    url: http://packages.cloud.google.com/apt/doc/apt-key.gpg
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    # url: http://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: present
 - name: Add repo to apt
   copy:
