@@ -1,8 +1,14 @@
 - hosts: localhost
+  vars:
+    accepted_oracle_license: n
   become: true
   environment:
     http_proxy: http://10.9.1.80:8080
     https_proxy: http://10.9.1.80:8080
+  vars_prompt:
+    - name: accepted_oracle_license
+      prompt: 'Do you accept the Java 8 Oracle License? y/n'
+      private: no
   pre_tasks:
     - name: Update repositories
       apt: update_cache=yes

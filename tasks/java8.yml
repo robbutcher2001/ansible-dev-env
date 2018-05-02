@@ -1,8 +1,11 @@
 - name: Add Java 8 repo to apt
+  when: accepted_oracle_license == 'y' or accepted_oracle_license == 'yes'
   apt_repository:
     repo: ppa:webupd8team/java
 - name: Update repositories
+  when: accepted_oracle_license == 'y' or accepted_oracle_license == 'yes'
   apt: update_cache=yes
   changed_when: False
 - name: Install Java 8
+  when: accepted_oracle_license == 'y' or accepted_oracle_license == 'yes'
   apt: name=oracle-java8-installer
