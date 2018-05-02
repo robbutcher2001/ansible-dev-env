@@ -17,7 +17,7 @@
       when: accepted_oracle_license == 'y' or accepted_oracle_license == 'yes'
     - debug:
         msg: 'User has NOT ACCEPTED the Java 8 Oracle License, Java will NOT be installed'
-      when: accepted_oracle_license != 'y' or accepted_oracle_license != 'yes'
+      when: accepted_oracle_license != 'y' and accepted_oracle_license != 'yes'
     - include: tasks/packages.yml
       when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial'
     - include: tasks/kubernetes.yml
