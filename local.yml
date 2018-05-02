@@ -4,9 +4,9 @@
     http_proxy: http://10.9.1.80:8080
     https_proxy: http://10.9.1.80:8080
   vars_prompt:
-    - name: 'accepted_oracle_license'
-      prompt: 'Do you accept the Java 8 Oracle License?'
-      default: 'n'
+    - name: "accepted_oracle_license"
+      prompt: "Do you accept the Java 8 Oracle License?"
+      default: "no"
       private: no
   pre_tasks:
     - name: Update repositories
