@@ -1,0 +1,10 @@
+- hosts: localhost
+  gather_facts: False
+  vars_prompt:
+    - name: "Version"
+      prompt: "Which version do you want to install?"
+
+  tasks:
+    - name: Ansible prompt example.
+      debug:
+        msg: "{{ Version }}"
