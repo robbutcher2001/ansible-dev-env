@@ -1,11 +1,12 @@
 - name: Add Java 8 repo to apt
-  when: accepted_oracle_license == 'y' or accepted_oracle_license == 'yes'
   apt_repository:
     repo: ppa:webupd8team/java
 - name: Update repositories
-  when: accepted_oracle_license == 'y' or accepted_oracle_license == 'yes'
   apt: update_cache=yes
   changed_when: False
+- name: Selecting agree on Oracle license
+  shell: 'echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections'
+- name: Marking Oracle license as agreed as user has accepted
+  shell: 'echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections'
 - name: Install Java 8
-  when: accepted_oracle_license == 'y' or accepted_oracle_license == 'yes'
   apt: name=oracle-java8-installer

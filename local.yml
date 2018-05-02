@@ -12,6 +12,12 @@
       apt: update_cache=yes
       changed_when: False
   tasks:
+    - debug:
+        msg: 'User has ACCEPTED the Java 8 Oracle License, Java will be installed..'
+      when: accepted_oracle_license == 'y' or accepted_oracle_license == 'yes'
+    - debug:
+        msg: 'User has NOT ACCEPTED the Java 8 Oracle License, Java will NOT be installed'
+      when: accepted_oracle_license != 'y' or accepted_oracle_license != 'yes'
     - include: tasks/packages.yml
       when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial'
     - include: tasks/kubernetes.yml
@@ -23,4 +29,4 @@
     - include: tasks/virtualbox.yml
       when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial'
     - include: tasks/java8.yml
-      when: ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial'
+      when: accepted_oracle_license == 'y' or accepted_oracle_license == 'yes' and (ansible_distribution == 'Ubuntu' or ansible_distribution_release == 'xenial')
