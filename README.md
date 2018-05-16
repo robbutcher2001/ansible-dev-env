@@ -19,4 +19,4 @@ This will:
   - Docker
   - Drone
   - VirtualBox
-  - Java 8 (you'll be asked to accpet the Oracle Licence)
+  - Java 8 (you'll be asked to accept the Oracle Licence)
